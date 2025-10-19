@@ -33,9 +33,10 @@ if (window.AOS) {
 if (window.Typed) {
   new Typed('#typed', {
     strings: [
-      'Telecom Compliance • NDNC Compliance',
-      'RCA Management • SMS Delivery',
-      'Salesforce CRM • JIRA'
+      'Executive — Customer Support',
+      'Telecom Compliance (DLT, NDNC)',
+      'RCA & Delivery Troubleshooting',
+      'Campaign Execution • CRM (Salesforce)'
     ],
     typeSpeed: 40,
     backSpeed: 25,
@@ -137,4 +138,5 @@ document.querySelectorAll('a[target="_blank"]').forEach(a => {
 window.addEventListener('load', () => {
   if (window.AOS) AOS.refresh(); 
 });
+
 
