@@ -33,7 +33,7 @@ if (window.AOS) {
 if (window.Typed) {
   new Typed('#typed', {
     strings: [
-      'Executive — Customer Support',
+      
       'Telecom Compliance (DLT, NDNC)',
       'RCA & Delivery Troubleshooting',
       'Campaign Execution • CRM (Salesforce)'
@@ -138,5 +138,6 @@ document.querySelectorAll('a[target="_blank"]').forEach(a => {
 window.addEventListener('load', () => {
   if (window.AOS) AOS.refresh(); 
 });
+
 
 
