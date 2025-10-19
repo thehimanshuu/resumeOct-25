@@ -35,7 +35,7 @@ if (window.Typed) {
     strings: [
       
       'Telecom Compliance (DLT, NDNC)',
-      'RCA & Delivery Troubleshooting',
+      'RCA and Delivery Troubleshooting',
       'Campaign Execution • CRM (Salesforce)'
     ],
     typeSpeed: 40,
@@ -138,6 +138,7 @@ document.querySelectorAll('a[target="_blank"]').forEach(a => {
 window.addEventListener('load', () => {
   if (window.AOS) AOS.refresh(); 
 });
+
 
 
 
