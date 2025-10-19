@@ -1,0 +1,139 @@
+:root {
+  --bg: #0f1720;
+  --card: #0f1728;
+  --muted: #94a3b8;
+  --text: #e6eef6;
+  --accent: #00bfa6;
+  --glass: rgba(255,255,255,0.03);
+  --maxW: 1100px;
+  --radius: 12px;
+  --shadow: 0 8px 30px rgba(2,6,23,0.6);
+  --glass-2: rgba(255,255,255,0.02);
+}
+
+/* Light theme variables (will be toggled on root[data-theme="light"]) */
+:root[data-theme="light"] {
+  --bg: #f7fbff;
+  --card: #ffffff;
+  --muted: #55606a;
+  --text: #081124;
+  --accent: #00bfa6;
+  --glass: rgba(2,6,23,0.03);
+  --glass-2: rgba(2,6,23,0.02);
+  --shadow: 0 8px 20px rgba(16,24,40,0.06);
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: 'Poppins', sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+.container { max-width: var(--maxW); margin: 0 auto; padding: 0 20px; }
+
+/* Header / Nav */
+.site-header { position: sticky; top:0; z-index:1000; backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(0,0,0,0.35), transparent); border-bottom: 1px solid rgba(255,255,255,0.02); }
+.nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+.logo { font-weight:700; letter-spacing:0.6px; color:var(--text); }
+.nav-links { list-style:none; padding:0; margin:0; display:flex; gap:18px; align-items:center; }
+.nav-links a { color:var(--muted); text-decoration:none; font-weight:600; font-size:0.95rem; }
+.nav-actions { display:flex; gap:12px; align-items:center; }
+.btn { background:var(--accent); color:#022; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:600; box-shadow: var(--shadow); }
+.btn-outline { border:1px solid rgba(255,255,255,0.06); color:var(--text); padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:600; background:transparent; }
+
+/* Hamburger for mobile */
+.hamburger { display:none; background:none; border:0; cursor:pointer; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--text); margin:4px 0; border-radius:2px; }
+
+/* Hero */
+.hero { padding:70px 0 40px; }
+.hero-inner { display:flex; gap:40px; align-items:center; }
+.hero-left { flex:1; }
+.hero-right { width:320px; flex-shrink:0; }
+.hero h1 { margin:0; font-size:2.1rem; letter-spacing:0.6px; color:var(--text); }
+.title { color:var(--muted); margin:8px 0 16px; font-weight:600; }
+.typing { color:var(--accent); font-weight:600; margin-bottom:18px; }
+
+/* Hero background image + subtle parallax-ish effect & overlay */
+.hero {
+  padding: 70px 0 40px;
+  position: relative;
+  background-image: url('Himanshu11.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: scroll; /* keep 'fixed' off for mobile performance */
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  z-index: 0;
+}
+
+/* darkening overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.45));
+  z-index: 0;
+}
+a:focus, button:focus { outline: 3px solid rgba(0,191,166,0.25); outline-offset: 2px; }
+
+/* ensure content sits above overlay */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* optional subtle parallax effect on scroll */
+@media (min-width: 900px) {
+  /* Desktop-only styles can go here (no JS inside CSS) */
+  .hero { background-attachment: scroll; }
+}
+
+
+
+/* Profile card */
+.profile-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:14px; padding:18px; display:flex; gap:14px; align-items:center; border:1px solid var(--glass-2); box-shadow: var(--shadow); }
+.profile-photo { width:100px; height:100px; border-radius:50%; object-fit:cover; border:3px solid rgba(255,255,255,0.04); }
+.profile-meta h3 { margin:0 0 6px 0; font-size:1rem; color:var(--text); }
+.profile-meta p { margin:0 0 10px 0; color:var(--muted); }
+
+/* Sections */
+.section { padding:48px 0; margin-bottom:10px; background:transparent; }
+.section h2 { margin:0 0 18px 0; font-size:1.4rem; color:var(--text); }
+.lead { color:var(--muted); line-height:1.6; max-width:850px; }
+
+/* Timeline */
+.timeline { display:flex; flex-direction:column; gap:18px; margin-top:14px; }
+.timeline-item { background:var(--card); padding:16px; border-radius:12px; border:1px solid var(--glass); }
+.ti-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.ti-header h3 { margin:0; font-size:1.05rem; color:var(--accent); }
+.date { color:var(--muted); font-weight:600; font-size:0.9rem; }
+
+/* Projects grid */
+.projects-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-top:12px; }
+.project-card { background:var(--card); padding:16px; border-radius:12px; border:1px solid var(--glass); box-shadow: var(--shadow); transition: transform .22s ease, box-shadow .22s ease; }
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,0.5); }
+.project-meta { margin-top:10px; color:var(--muted); font-size:0.9rem; }
+
+/* Skills */
+.skill-groups { display:flex; gap:24px; flex-wrap:wrap; margin-top:12px; }
+.skill-group { flex:1; min-width:220px; }
+.chips { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+.chips span { background: rgba(255,255,255,0.03); padding:8px 10px; border-radius:999px; color:var(--text); font-weight:600; border:1px solid var(--glass-2); }
+
+/* Education */
+.edu-grid { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+.edu-item { background:var(--card); padding:14px; border-radius:12px; border:1px solid var(--glass); width:100%; }
+
+/* Contact */
+.contact-actions { display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
+
+/* Footer */
+.site-footer { padding:18px 0; border-top:1px solid rgba(255,255,255,0.02); margin-top:30px; color:var(--muted); }
+.top-btn { float:right; }
+
+/* Responsive */
+@media (max-width:900px) {
+  .hero-inner { flex-direction:column; align-items:flex-start; }
+  .nav-links { display:none; position: absolute; right:20px; top:64px; background: var(--card); padding:12px; border-radius:8px; flex-direction:column; gap:10px; border:1px solid var(--glass); }
+  .hamburger { display:block; }
+  .profile-card { width:100%; }
+}
